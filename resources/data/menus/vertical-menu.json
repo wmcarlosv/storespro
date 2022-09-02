@@ -1,0 +1,34 @@
+{
+  "menu": [
+    {
+      "url": "/admin/dashboard",
+      "name": "Dashboard",
+      "slug": "dashboard",
+      "icon": "desktop"
+    },
+    {
+      "url":"/admin/profile",
+      "name":"Profile",
+      "slug":"profile",
+      "icon": "user"
+    },
+    {
+      "url":"/admin/users",
+      "name":"Users",
+      "slug":"users",
+      "icon": "users"
+    },
+    {
+      "url":"/admin/clients",
+      "name":"Clients",
+      "slug":"clients",
+      "icon": "briefcase"
+    },
+    {
+      "url":"/admin/prospects",
+      "name":"Prospects",
+      "slug":"prospects",
+      "icon": "rocket"
+    }
+  ]
+}
