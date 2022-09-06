@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Prospect;
 use Session;
+use Freshwork\ChileanBundle\Rut;
 
 class ProspectController extends Controller
 {
@@ -17,7 +18,7 @@ class ProspectController extends Controller
     public function index()
     {
         $data = Prospect::all();
-        $columns = ['Rut','Name','Social Razon','Phone'];
+        $columns = ['Rut','Name','Social Razon','Address','Phone','Contact Name','Contact Email','Contact Phone'];
         $title = "Prospect";
         return view('admin.'.$this->element.'.index', compact('data','columns','title'));
     }
@@ -47,14 +48,29 @@ class ProspectController extends Controller
             'rut'=>'required',
             'name'=>'required',
             'social_razon'=>'required',
-            'address'=>'required'
+            'address'=>'required',
+            'phone'=>'required|numeric',
+            'contact_name'=>'required',
+            'contact_email'=>'required',
+            'contact_phone'=>'required|numeric',
+            'requirement'=>'required'
         ]);
+
+        $rut = new Rut($request->rut, '1');
+        if(!$rut->validate()){
+            return back()->withErrors('Rut Invalido!!');
+        }
 
         $element = new Prospect();
         $element->rut = $request->rut;
-        $element->name = $request->name;
-        $element->social_razon = $request->social_razon;
-        $element->address= $request->address;
+        $element->name = strtoupper($request->name);
+        $element->social_razon = strtoupper($request->social_razon);
+        $element->address= strtoupper($request->address);
+        $element->phone = $request->phone;
+        $element->contact_name = strtoupper($request->contact_name);
+        $element->contact_email = strtoupper($request->contact_email);
+        $element->contact_phone = strtoupper($request->contact_phone);
+        $element->requirement = strtoupper($request->requirement);
 
         if($element->save()){
             Session::flash('success','Prospect Added Succefully!!');
@@ -103,14 +119,29 @@ class ProspectController extends Controller
             'rut'=>'required',
             'name'=>'required',
             'social_razon'=>'required',
-            'address'=>'required'
+            'address'=>'required',
+            'phone'=>'required|numeric',
+            'contact_name'=>'required',
+            'contact_email'=>'required',
+            'contact_phone'=>'required|numeric',
+            'requirement'=>'required'
         ]);
+
+        $rut = new Rut($request->rut, '1');
+        if(!$rut->validate()){
+            return back()->withErrors('Rut Invalido!!');
+        }
 
         $element = Prospect::findorfail($id);
         $element->rut = $request->rut;
-        $element->name = $request->name;
-        $element->social_razon = $request->social_razon;
-        $element->address= $request->address;
+        $element->name = strtoupper($request->name);
+        $element->social_razon = strtoupper($request->social_razon);
+        $element->address= strtoupper($request->address);
+        $element->phone = $request->phone;
+        $element->contact_name = strtoupper($request->contact_name);
+        $element->contact_email = strtoupper($request->contact_email);
+        $element->contact_phone = strtoupper($request->contact_phone);
+        $element->requirement = strtoupper($request->requirement);
 
         if($element->update()){
             Session::flash('success','Prospect Updated Succefully!!');

@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -227,6 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Helper' => App\Helpers\Helper::class,
+        'Rut'   => Freshwork\ChileanBundle\Laravel\Facades\Rut::class,
     ],
 
 ];

@@ -14,19 +14,23 @@
 				<div class="card-body">
 					<div class="form-group">
 						<label for="rut">Rut:</label>
-						<input type="text" class="form-control" name="rut" value="{{ @$data->rut }}">
+						<input type="text" class="form-control" required name="rut" value="{{ @$data->rut }}">
 					</div>
 					<div class="form-group">
 						<label for="name">Name:</label>
-						<input type="text" class="form-control" name="name" value="{{ @$data->name }}">
+						<input type="text" class="form-control" required name="name" value="{{ @$data->name }}">
 					</div>
 					<div class="form-group">
 						<label for="social_razon">Social Razon:</label>
-						<input type="text" class="form-control" name="social_razon" value="{{ @$data->social_razon }}">
+						<input type="text" class="form-control" required name="social_razon" value="{{ @$data->social_razon }}">
 					</div>
 					<div class="form-group">
 						<label for="address">Address:</label>
-						<textarea class="form-control" name="address">{{ @$data->social_razon }}</textarea>
+						<textarea class="form-control" required name="address">{{ @$data->social_razon }}</textarea>
+					</div>
+					<div class="form-group">
+						<label for="phone">Phone:</label>
+						<input type="text" maxlength="9" minlength="9" required class="form-control" name="phone" value="{{ @$data->phone }}">
 					</div>
 				</div>
 				<div class="card-footer">

@@ -13,7 +13,6 @@
 				@include('admin.layouts.new',['element'=>'clients'])
 				<table class="table table-striped table-bordered">
 					<thead>
-						<th>ID</th>
 						@foreach($columns as $column)
 							<th>{{ $column }}</th>
 						@endforeach
@@ -22,11 +21,11 @@
 					<tbody>
 						@foreach($data as $d)
 							<tr>
-								<td>{{ $d->id }}</td>
 								<td>{{ $d->rut }}</td>
 								<td>{{ $d->name }}</td>
 								<td>{{ $d->social_razon }}</td>
 								<td>{{ $d->address }}</td>
+								<td>{{ $d->phone }}</td>
 								<td>
 									@include('admin.layouts.ed',['element'=>'clients','id'=>$d->id])
 								</td>

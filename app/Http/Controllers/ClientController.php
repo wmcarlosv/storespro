@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use Session;
+use Freshwork\ChileanBundle\Rut;
 
 class ClientController extends Controller
 {
@@ -17,7 +18,7 @@ class ClientController extends Controller
     public function index()
     {
         $data = Client::all();
-        $columns = ['Rut','Name','Social Razon','Phone'];
+        $columns = ['Rut','Name','Social Razon','Address','Phone'];
         $title = "Clients";
         return view('admin.'.$this->element.'.index', compact('data','columns','title'));
     }
@@ -47,14 +48,21 @@ class ClientController extends Controller
             'rut'=>'required',
             'name'=>'required',
             'social_razon'=>'required',
-            'address'=>'required'
+            'address'=>'required',
+            'phone'=>'required|numeric'
         ]);
+
+        $rut = new Rut($request->rut, '1');
+        if(!$rut->validate()){
+            return back()->withErrors('Rut Invalido!!');
+        }
 
         $element = new Client();
         $element->rut = $request->rut;
-        $element->name = $request->name;
-        $element->social_razon = $request->social_razon;
-        $element->address= $request->address;
+        $element->name = strtoupper($request->name);
+        $element->social_razon = strtoupper($request->social_razon);
+        $element->address= strtoupper($request->address);
+        $element->phone = $request->phone;
 
         if($element->save()){
             Session::flash('success','Client Added Succefully!!');
@@ -103,14 +111,21 @@ class ClientController extends Controller
             'rut'=>'required',
             'name'=>'required',
             'social_razon'=>'required',
-            'address'=>'required'
+            'address'=>'required',
+            'phone'=>'required|numeric'
         ]);
+
+        $rut = new Rut($request->rut, '1');
+        if(!$rut->validate()){
+            return back()->withErrors('Rut Invalido!!');
+        }
 
         $element = Client::findorfail($id);
         $element->rut = $request->rut;
-        $element->name = $request->name;
-        $element->social_razon = $request->social_razon;
-        $element->address= $request->address;
+        $element->name = strtoupper($request->name);
+        $element->social_razon = strtoupper($request->social_razon);
+        $element->address= strtoupper($request->address);
+        $element->phone = $request->phone;
 
         if($element->update()){
             Session::flash('success','Client Updated Succefully!!');

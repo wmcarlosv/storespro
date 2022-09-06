@@ -33,8 +33,8 @@
 					@endif
 				
 					<div class="form-group">
-						<label for="phone">Phone:</label>
-						<input type="text" class="form-control" name="phone" value="{{ @$data->phone }}">
+						<label for="phone">Phone</label>
+						<input type="text" maxlength="9" minlength="9" required class="form-control" value="{{ @$data->phone }}" name="phone">
 					</div>
 				</div>
 				<div class="card-footer">

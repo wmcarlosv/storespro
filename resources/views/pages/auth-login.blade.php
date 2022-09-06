@@ -16,8 +16,8 @@
         <div class="col-md-6 col-12 px-0">
           <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
             <div class="card-header pb-1">
-              <div class="card-title">
-                <h4 class="text-center mb-2">Welcome Back</h4>
+              <div class="card-title text-center" style="display: block; width: 100%;">
+                <img src="{{ asset('images/logo/logo_login.png') }}" style="margin:10px auto;" alt="">
               </div>
             </div>
             <div class="card-body">

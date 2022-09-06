@@ -36,6 +36,15 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/extensions/sweetalert2.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <style>
+      table.table tr td{
+        text-transform: uppercase;
+      }
+
+      input, select, textarea{
+        text-transform: uppercase;
+      }
+    </style>
     {{-- Include core + vendor Styles --}}
     @include('panels.styles')
     </head>

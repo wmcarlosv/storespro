@@ -16,19 +16,19 @@
 				<div class="card-body">
 					<div class="form-group">
 						<label for="rut">Rut</label>
-						<input type="text" class="form-control" value="{{ Auth::user()->rut }}" name="rut">
+						<input type="text" class="form-control" required value="{{ Auth::user()->rut }}" name="rut">
 					</div>
 					<div class="form-group">
 						<label for="name">Name</label>
-						<input type="text" class="form-control" value="{{ Auth::user()->name }}" name="name">
+						<input type="text" class="form-control" required value="{{ Auth::user()->name }}" name="name">
 					</div>
 					<div class="form-group">
 						<label for="email">Email</label>
-						<input type="email" class="form-control" value="{{ Auth::user()->email }}" name="email">
+						<input type="email" class="form-control" required value="{{ Auth::user()->email }}" name="email">
 					</div>
 					<div class="form-group">
 						<label for="phone">Phone</label>
-						<input type="text" class="form-control" value="{{ Auth::user()->phone }}" name="phone">
+						<input type="text" maxlength="9" minlength="9" required class="form-control" value="{{ Auth::user()->phone }}" name="phone">
 					</div>
 				</div>
 				<div class="card-footer">

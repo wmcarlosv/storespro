@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
 use Session;
+use Freshwork\ChileanBundle\Rut;
 
 class UserController extends Controller
 {
@@ -17,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::all();
+        $data = User::orderBy('id','DESC')->get();
         $columns = ['name','email','rut','phone'];
         $title = "Users";
         return view('admin.'.$this->element.'.index', compact('data','columns','title'));
@@ -49,13 +50,18 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required',
             'password'=>'required',
-            'phone'=>'required'
+            'phone'=>'required|numeric'
         ]);
+
+        $rut = new Rut($request->rut, '1');
+        if(!$rut->validate()){
+            return back()->withErrors('Rut Invalido!!');
+        }
 
         $element = new User();
         $element->rut = $request->rut;
-        $element->name = $request->name;
-        $element->email = $request->email;
+        $element->name = strtoupper($request->name);
+        $element->email = strtoupper($request->email);
         $element->password = bcrypt($request->password);
         $element->phone = $request->phone;
         if($element->save()){
@@ -105,13 +111,13 @@ class UserController extends Controller
             'rut'=>'required',
             'name'=>'required',
             'email'=>'required',
-            'phone'=>'required'
+            'phone'=>'required|numeric',
         ]);
 
         $element = User::findorfail($id);
         $element->rut = $request->rut;
-        $element->name = $request->name;
-        $element->email = $request->email;
+        $element->name = strtoupper($request->name);
+        $element->email = strtoupper($request->email);
         $element->phone = $request->phone;
 
         if($element->update()){
@@ -149,14 +155,14 @@ class UserController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required',
-            'phone'=>'required',
+            'phone'=>'required|numeric',
             'rut'=>'required'
         ]);
 
         $user = User::findorfail(Auth::user()->id);
         $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
+        $user->email = strtoupper($request->email);
+        $user->phone = trim($request->phone);
         $user->rut = $request->rut;
 
         if($user->save()){
@@ -184,5 +190,16 @@ class UserController extends Controller
         }
 
         return redirect()->route('profile');
+    }
+
+    public function randomPassword() {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array(); //remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < 8; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass); //turn the array into a string
     }
 }

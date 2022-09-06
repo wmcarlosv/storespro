@@ -139,6 +139,7 @@ class ComposerStaticInitef221805b014bc1ac0a23348194322f5
         'F' => 
         array (
             'Fruitcake\\Cors\\' => 15,
+            'Freshwork\\ChileanBundle\\' => 24,
             'Fideloper\\Proxy\\' => 16,
             'Faker\\' => 6,
             'Facade\\Ignition\\' => 16,
@@ -423,6 +424,10 @@ class ComposerStaticInitef221805b014bc1ac0a23348194322f5
         array (
             0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
         ),
+        'Freshwork\\ChileanBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/freshwork/chilean-bundle/src',
+        ),
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
@@ -524,6 +529,7 @@ class ComposerStaticInitef221805b014bc1ac0a23348194322f5
         'App\\Http\\Controllers\\AuthenticationController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthenticationController.php',
         'App\\Http\\Controllers\\CardController' => __DIR__ . '/../..' . '/app/Http/Controllers/CardController.php',
         'App\\Http\\Controllers\\ChartController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChartController.php',
+        'App\\Http\\Controllers\\ClientController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClientController.php',
         'App\\Http\\Controllers\\ComponentController' => __DIR__ . '/../..' . '/app/Http/Controllers/ComponentController.php',
         'App\\Http\\Controllers\\ContentController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContentController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -536,7 +542,9 @@ class ComposerStaticInitef221805b014bc1ac0a23348194322f5
         'App\\Http\\Controllers\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/LanguageController.php',
         'App\\Http\\Controllers\\MiscellaneousController' => __DIR__ . '/../..' . '/app/Http/Controllers/MiscellaneousController.php',
         'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',
+        'App\\Http\\Controllers\\ProspectController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProspectController.php',
         'App\\Http\\Controllers\\TableController' => __DIR__ . '/../..' . '/app/Http/Controllers/TableController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -548,6 +556,8 @@ class ComposerStaticInitef221805b014bc1ac0a23348194322f5
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Client' => __DIR__ . '/../..' . '/app/Models/Client.php',
+        'App\\Models\\Prospect' => __DIR__ . '/../..' . '/app/Models/Prospect.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -1496,6 +1506,11 @@ class ComposerStaticInitef221805b014bc1ac0a23348194322f5
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
+        'Freshwork\\ChileanBundle\\Exceptions\\InvalidFormatException' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Exceptions/InvalidFormatException.php',
+        'Freshwork\\ChileanBundle\\Facades\\Rut' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Facades/Rut.php',
+        'Freshwork\\ChileanBundle\\Laravel\\ChileanBundleServiceProvider' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Laravel/ChileanBundleServiceProvider.php',
+        'Freshwork\\ChileanBundle\\Laravel\\Facades\\Rut' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Laravel/Facades/Rut.php',
+        'Freshwork\\ChileanBundle\\Rut' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Rut.php',
         'Fruitcake\\Cors\\CorsServiceProvider' => __DIR__ . '/..' . '/fruitcake/laravel-cors/src/CorsServiceProvider.php',
         'Fruitcake\\Cors\\HandleCors' => __DIR__ . '/..' . '/fruitcake/laravel-cors/src/HandleCors.php',
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',

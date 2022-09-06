@@ -28,6 +28,26 @@
 						<label for="address">Address:</label>
 						<textarea class="form-control" name="address">{{ @$data->social_razon }}</textarea>
 					</div>
+					<div class="form-group">
+						<label for="phone">Phone:</label>
+						<input type="text" maxlength="9" minlength="9" class="form-control" name="phone" value="{{ @$data->phone }}">
+					</div>
+					<div class="form-group">
+						<label for="contact_name">Contact Name:</label>
+						<input type="text" class="form-control" name="contact_name" value="{{ @$data->contact_name }}">
+					</div>
+					<div class="form-group">
+						<label for="contact_email">Contact Email:</label>
+						<input type="text" class="form-control" name="contact_email" value="{{ @$data->contact_email }}">
+					</div>
+					<div class="form-group">
+						<label for="contact_phone">Phone:</label>
+						<input type="text" maxlength="9" minlength="9" class="form-control" name="contact_phone" value="{{ @$data->contact_phone }}">
+					</div>
+					<div class="form-group">
+						<label for="requirement">Requirements:</label>
+						<textarea class="form-control" name="requirement">{{ @$data->requirement }}</textarea>
+					</div>
 				</div>
 				<div class="card-footer">
 					@include('admin.layouts.buttons',['routeCancel'=>'prospects.index'])
